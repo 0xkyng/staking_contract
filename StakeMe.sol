@@ -19,4 +19,15 @@ contract StakeMe {
     constructor(address _standardToken){
        standardToken = IStandardToken(_standardToken);
     }
+
+    function stake(uint amount) external {
+         uint balance = standardToken.balanceOf(msg.sender);
+         require(balance >= amount, "Insufficient balance");
+         bool success = standardToken.transferFrom(msg.sender, address(this), amount);
+         require(success, "transfer failed");
+         User storage staker = user[msg.sender];
+         staker.amountStaked+= amount;
+         staker.timeStaked = block.timestamp;
+         emit Staked(amount, staker.amountStaked, block.timestamp);
+    }
 }

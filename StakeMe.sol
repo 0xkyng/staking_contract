@@ -35,4 +35,12 @@ contract StakeMe {
         User storage staker = user[msg.sender];
         _staked = staker.amountStaked;
     }
+
+    function withdraw(uint amount) external {
+        User storage staker = user[msg.sender];
+        uint totalStaked = staker.amountStaked;
+        require(totalStaked >= amount);
+        staker.amountStaked -= amount;
+        standardToken.transfer(msg.sender, amount);
+    }
 }

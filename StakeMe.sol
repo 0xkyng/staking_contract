@@ -20,6 +20,7 @@ contract StakeMe {
        standardToken = IStandardToken(_standardToken);
     }
 
+    // Stake your standard tken
     function stake(uint amount) external {
          uint balance = standardToken.balanceOf(msg.sender);
          require(balance >= amount, "Insufficient balance");

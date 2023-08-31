@@ -38,6 +38,7 @@ contract StakeMe {
         _staked = staker.amountStaked;
     }
 
+    // user can withraw staked token
     function withdraw(uint amount) external {
         User storage staker = user[msg.sender];
         uint totalStaked = staker.amountStaked;

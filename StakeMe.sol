@@ -32,6 +32,7 @@ contract StakeMe {
          emit Staked(amount, staker.amountStaked, block.timestamp);
     }
 
+    // get the amount the user staked
     function getStake() external view returns (uint _staked) {
         User storage staker = user[msg.sender];
         _staked = staker.amountStaked;

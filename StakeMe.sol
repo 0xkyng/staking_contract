@@ -2,12 +2,15 @@
 pragma solidity 0.8.19;
 
 import {IStandardToken} from "./IStandardToken.sol";
-
-import {ERC20} from "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
-
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract StakeMe is ERC20{
     IStandardToken standardToken;
+    uint256 min_stake_duration = 1 minutes;
+    uint8 rate = 3;
+    uint8 percentage = 100;
+    uint public contractBalance;
+    
     
 
     struct User {

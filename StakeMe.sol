@@ -18,7 +18,7 @@ contract StakeMe is ERC20{
 
     mapping (address => User) user;
 
-    constructor(address _standardToken){
+    constructor(address _standardToken) ERC20("STAKING_REWARDS_TOKEN", "SRT"){
        standardToken = IStandardToken(_standardToken);
     }
 

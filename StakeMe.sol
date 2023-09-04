@@ -3,8 +3,10 @@ pragma solidity 0.8.19;
 
 import {IStandardToken} from "./IStandardToken.sol";
 
+import {ERC20} from "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
-contract StakeMe {
+
+contract StakeMe is ERC20{
     IStandardToken standardToken;
     
 
